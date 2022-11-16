@@ -1,6 +1,8 @@
-<form (ngSubmit)="onEmployeeFormSubmitted(employeeForm)" [formGroup]="employeeForm"><input formControlName="name"
-                                                                                           placeholder="Name"
-                                                                                           type="text"><input
-  formControlName="age" placeholder="Age" type="text"><input formControlName="salary" placeholder="Salary"
-                                                             type="text"><input type="submit" value="Submit">
+<form (ngSubmit)="onEmployeeFormSubmitted(employeeForm)" [formGroup]="employeeForm">
+  <input formControlName="name" placeholder="Name" type="text">
+  <input formControlName="age" placeholder="Age" type="text">
+  <input formControlName="salary" placeholder="Salary" type="text">
+  <input [disabled]="employeeForm.invalid" type="submit" value="Submit">
 </form>
+
+Your new employee: {{employeeForm.value.name}}, age {{employeeForm.value.age}} with salary {{employeeForm.value.salary}} $ will be added to the system
