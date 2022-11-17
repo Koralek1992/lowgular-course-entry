@@ -14,11 +14,11 @@ export class EmployeeService {
   }
 
   create(employee: CreateEmployeeModel): Observable<any> {
-    return this._httpClient.post('https://dummy.restapiexample.com/create', employee);
+    return this._httpClient.post('https://dummy.restapiexample.com/api/v1/create', employee);
   }
 
   delete(id: string): Observable<any> {
-    return this._httpClient.delete('https://dummy.restapiexample.com/delete' + id);
+    return this._httpClient.delete('https://dummy.restapiexample.com/api/v1/delete' + id);
 
   }
 }
