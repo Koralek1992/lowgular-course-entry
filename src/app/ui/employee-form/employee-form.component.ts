@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CreateEmployeeModel} from "../../model/create-employee.model";
 
 @Component({
   selector: 'app-employee-form',
@@ -15,5 +16,9 @@ export class EmployeeFormComponent {
   });
 
   onEmployeeFormSubmitted(employeeForm: FormGroup): void {
+  }
+
+  onFormSubmitted(form: CreateEmployeeModel) {
+
   }
 }
