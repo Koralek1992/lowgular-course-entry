@@ -1,6 +1,8 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CreateEmployeeModel} from "../../model/create-employee.model";
+import {HttpClient} from '@angular/common/http';
+import {EmployeeService} from '../../services/employee.service';
+import {CreateEmployeeModel} from '../../model/create-employee.model';
 
 @Component({
   selector: 'app-employee-form',
@@ -15,10 +17,11 @@ export class EmployeeFormComponent {
     salary: new FormControl(null, Validators.min(1))
   });
 
-  onEmployeeFormSubmitted(employeeForm: FormGroup): void {
+  constructor(private _employeeService: EmployeeService, private _httpClient: HttpClient) {
   }
 
   onFormSubmitted(form: CreateEmployeeModel) {
+    this._employeeService.create({name: form.name, age: form.age, salary: form.salary}).subscribe();
 
   }
 }
