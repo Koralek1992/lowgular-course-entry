@@ -1,8 +1,11 @@
 import {NgModule} from '@angular/core';
 import {EmployeeDetailsComponent} from './employee-details.component';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   declarations: [EmployeeDetailsComponent],
   providers: [],
   exports: [EmployeeDetailsComponent]

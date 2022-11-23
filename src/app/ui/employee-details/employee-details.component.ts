@@ -1,4 +1,7 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {map, Observable} from "rxjs";
+import {EmployeeDetailsParamsModel} from "../../model/employee-details-params.model";
 
 @Component({
   selector: 'app-employee-details',
@@ -7,4 +10,11 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeDetailsComponent {
+
+  readonly params$: Observable<EmployeeDetailsParamsModel> = this._activatedRoute.params.pipe(map((params => ({id: params['id']}))
+    )
+  )
+
+  constructor(private _activatedRoute: ActivatedRoute) {
+  }
 }
