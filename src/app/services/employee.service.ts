@@ -35,7 +35,6 @@ export class EmployeeService {
 
   delete(id: string): Observable<any> {
     return this._httpClient.delete('https://dummy.restapiexample.com/api/v1/delete' + id);
-
   }
 
   getOne(id: string): Observable<EmployeeModel> {
